@@ -1,8 +1,13 @@
-import requests
+import os
 import logging
+import requests
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 FRESHDESK_DOMAIN = "nust-help.freshdesk.com"
-FRESHDESK_API_KEY = "AgpnxILTvKcYjIspBF"
+FRESHDESK_API_KEY = os.getenv("FRESHDESK_API_KEY")
 FRESHDESK_ENDPOINT = f"https://{FRESHDESK_DOMAIN}/api/v2/tickets"
 
 
