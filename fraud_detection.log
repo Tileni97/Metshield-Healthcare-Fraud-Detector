@@ -1,0 +1,5 @@
+2025-07-23 14:13:53,930 - __main__ - INFO - Starting feature engineering...
+2025-07-23 14:25:10,095 - Comm - ERROR - No such comm target registered: jupyter.widget.control
+2025-07-23 14:25:10,158 - Comm - WARNING - No such comm: dcdf9290-4ff0-4dba-8b50-68c7220e1bb6
+2025-07-23 16:18:33,801 - Comm - ERROR - No such comm target registered: jupyter.widget.control
+2025-07-23 16:18:33,851 - Comm - WARNING - No such comm: d2701ebb-e818-4b09-92de-28fa61b4d74d

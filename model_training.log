@@ -1,0 +1,551 @@
+2025-07-23 15:42:55,979 - ERROR - exception calling callback for <Future at 0x22568518c50 state=finished raised BrokenProcessPool>
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 391, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\multiprocessing\queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\__init__.py", line 73, in <module>
+    from .base import clone  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\base.py", line 19, in <module>
+    from .utils._estimator_html_repr import _HTMLDocumentationLinkMixin, estimator_html_repr
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\__init__.py", line 15, in <module>
+    from ._chunking import gen_batches, gen_even_slices
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\_chunking.py", line 11, in <module>
+    from ._param_validation import Interval, validate_params
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\_param_validation.py", line 14, in <module>
+    from scipy.sparse import csr_matrix, issparse
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\sparse\__init__.py", line 283, in <module>
+    from . import csgraph
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\sparse\csgraph\__init__.py", line 185, in <module>
+    from ._laplacian import laplacian
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\sparse\csgraph\_laplacian.py", line 7, in <module>
+    from scipy.sparse.linalg import LinearOperator
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\sparse\linalg\__init__.py", line 120, in <module>
+    from ._isolve import *
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\sparse\linalg\_isolve\__init__.py", line 6, in <module>
+    from .lgmres import lgmres
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\sparse\linalg\_isolve\lgmres.py", line 7, in <module>
+    from scipy.linalg import get_blas_funcs
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\linalg\__init__.py", line 197, in <module>
+    from ._misc import *
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\linalg\_misc.py", line 4, in <module>
+    from .lapack import get_lapack_funcs
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\linalg\lapack.py", line 824, in <module>
+    from scipy.linalg import _flapack
+ImportError: DLL load failed while importing _flapack: The paging file is too small for this operation to complete.
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 975, in retrieve
+    self._output.extend(job.get(timeout=self.timeout))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\_parallel_backends.py", line 567, in wrap_future_result
+    return future.result(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\concurrent\futures\_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\concurrent\futures\_base.py", line 401, in __get_result
+    raise self._exception
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\_base.py", line 26, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 385, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 1129, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.BrokenProcessPool: A task has failed to un-serialize. Please ensure that the arguments of the function are all picklable.
+2025-07-23 15:43:03,976 - ERROR - exception calling callback for <Future at 0x22568580690 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\_base.py", line 26, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 385, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 1129, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+2025-07-23 15:43:11,283 - ERROR - exception calling callback for <Future at 0x22569a1ac10 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\_base.py", line 26, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 385, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 1129, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+2025-07-23 15:43:19,137 - ERROR - exception calling callback for <Future at 0x22569a368d0 state=finished raised TerminatedWorkerError>
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\_base.py", line 26, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 385, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 1129, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.TerminatedWorkerError: A worker process managed by the executor was unexpectedly terminated. This could be caused by a segmentation fault while calling the function or by an excessive memory usage causing the Operating System to kill the worker.
+
+2025-07-23 15:43:28,217 - ERROR - exception calling callback for <Future at 0x22569a4d110 state=finished raised BrokenProcessPool>
+joblib.externals.loky.process_executor._RemoteTraceback: 
+"""
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 391, in _process_worker
+    call_item = call_queue.get(block=True, timeout=timeout)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\multiprocessing\queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\__init__.py", line 73, in <module>
+    from .base import clone  # noqa: E402
+    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\base.py", line 19, in <module>
+    from .utils._estimator_html_repr import _HTMLDocumentationLinkMixin, estimator_html_repr
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\__init__.py", line 15, in <module>
+    from ._chunking import gen_batches, gen_even_slices
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\_chunking.py", line 11, in <module>
+    from ._param_validation import Interval, validate_params
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\_param_validation.py", line 17, in <module>
+    from .validation import _is_arraylike_not_scalar
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\validation.py", line 21, in <module>
+    from ..utils._array_api import _asarray_with_order, _is_numpy_namespace, get_namespace
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\_array_api.py", line 17, in <module>
+    from .fixes import parse_version
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\sklearn\utils\fixes.py", line 17, in <module>
+    import scipy.stats
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\stats\__init__.py", line 485, in <module>
+    from ._stats_py import *
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\stats\_stats_py.py", line 46, in <module>
+    from . import distributions
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\stats\distributions.py", line 11, in <module>
+    from . import _discrete_distns
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\stats\_discrete_distns.py", line 1530, in <module>
+    yulesimon = yulesimon_gen(name='yulesimon', a=1)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\stats\_distn_infrastructure.py", line 3208, in __init__
+    self._construct_argparser(meths_to_inspect=[self._pmf, self._cdf],
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\stats\_distn_infrastructure.py", line 711, in _construct_argparser
+    shapes_args = _getfullargspec(meth)  # NB does not contain self
+                  ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\scipy\_lib\_util.py", line 329, in getfullargspec_no_self
+    sig = inspect.signature(func)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\inspect.py", line 3280, in signature
+    return Signature.from_callable(obj, follow_wrapped=follow_wrapped,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\inspect.py", line 3028, in from_callable
+    return _signature_from_callable(obj, sigcls=cls,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\inspect.py", line 2454, in _signature_from_callable
+    sig = _get_signature_of(obj.__func__)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\inspect.py", line 2516, in _signature_from_callable
+    return _signature_from_function(sigcls, obj,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\inspect.py", line 2378, in _signature_from_function
+    parameters.append(Parameter(name, annotation=annotation,
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\inspect.py", line 2688, in __init__
+    self._kind = _ParameterKind(kind)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\enum.py", line 711, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+SystemError: error return without exception set
+"""
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\_base.py", line 26, in _invoke_callbacks
+    callback(self)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 385, in __call__
+    self.parallel.dispatch_next()
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 834, in dispatch_next
+    if not self.dispatch_one_batch(self._original_iterator):
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 901, in dispatch_one_batch
+    self._dispatch(tasks)
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\parallel.py", line 819, in _dispatch
+    job = self._backend.apply_async(batch, callback=cb)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\_parallel_backends.py", line 556, in apply_async
+    future = self._workers.submit(SafeFunction(func))
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\reusable_executor.py", line 176, in submit
+    return super().submit(fn, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Chang\anaconda3\Lib\site-packages\joblib\externals\loky\process_executor.py", line 1129, in submit
+    raise self._flags.broken
+joblib.externals.loky.process_executor.BrokenProcessPool: A task has failed to un-serialize. Please ensure that the arguments of the function are all picklable.
+2025-07-23 20:14:32,153 - INFO - Data split complete:
+2025-07-23 20:14:32,153 - INFO -    • Training set: 4,000 samples
+2025-07-23 20:14:32,153 - INFO -    • Test set: 1,000 samples
+2025-07-23 20:14:32,172 - INFO -    • Training fraud rate: 17.35%
+2025-07-23 20:14:32,174 - INFO -    • Test fraud rate: 17.30%
+2025-07-23 20:14:32,183 - INFO - Numeric features to scale: 49
+2025-07-23 20:14:32,333 - INFO -    • Scaler type: RobustScaler
+2025-07-23 20:14:32,347 - INFO -    • Features scaled: 49
+2025-07-23 20:15:15,320 - INFO - Data split complete:
+2025-07-23 20:15:15,321 - INFO -    • Training set: 4,000 samples
+2025-07-23 20:15:15,327 - INFO -    • Test set: 1,000 samples
+2025-07-23 20:15:15,331 - INFO -    • Training fraud rate: 17.35%
+2025-07-23 20:15:15,335 - INFO -    • Test fraud rate: 17.30%
+2025-07-23 20:15:15,343 - INFO - Numeric features to scale: 49
+2025-07-23 20:15:15,437 - INFO -    • Scaler type: RobustScaler
+2025-07-23 20:15:15,438 - INFO -    • Features scaled: 49
+2025-07-23 20:44:27,785 - INFO - Data split complete:
+2025-07-23 20:44:27,788 - INFO -    • Training set: 4,000 samples
+2025-07-23 20:44:27,790 - INFO -    • Test set: 1,000 samples
+2025-07-23 20:44:27,794 - INFO -    • Training fraud rate: 17.35%
+2025-07-23 20:44:27,796 - INFO -    • Test fraud rate: 17.30%
+2025-07-23 20:44:27,800 - INFO - Numeric features to scale: 49
+2025-07-23 20:44:27,899 - INFO -    • Scaler type: RobustScaler
+2025-07-23 20:44:27,900 - INFO -    • Features scaled: 49
+2025-07-23 21:04:02,044 - INFO - Train shape: (4000, 49), Test shape: (1000, 49)
+2025-07-23 21:04:02,051 - INFO - Fraud rate: Train=17.35%, Test=17.30%
+2025-07-23 21:04:02,051 - INFO - Scaling 49 numeric features.
+2025-07-23 21:05:46,530 - INFO - Train shape: (4000, 49), Test shape: (1000, 49)
+2025-07-23 21:05:46,536 - INFO - Fraud rate: Train=17.35%, Test=17.30%
+2025-07-23 21:05:46,538 - INFO - Scaling 49 numeric features.
+2025-07-23 21:05:46,653 - INFO - Scaling complete and saved to disk.
+2025-07-23 21:05:59,764 - INFO - Train shape: (4000, 49), Test shape: (1000, 49)
+2025-07-23 21:05:59,764 - INFO - Fraud rate: Train=17.35%, Test=17.30%
+2025-07-23 21:05:59,770 - INFO - Scaling 49 numeric features.
+2025-07-23 21:05:59,827 - INFO - Scaling complete and saved to disk.
+2025-07-23 21:07:06,937 - INFO - Starting data split and scaling...
+2025-07-23 21:07:06,969 - INFO - Train shape: (4000, 49), Test shape: (1000, 49)
+2025-07-23 21:07:06,972 - INFO - Fraud rate: Train=17.35%, Test=17.30%
+2025-07-23 21:07:06,977 - INFO - Scaling 49 numeric features.
+2025-07-23 21:07:07,112 - INFO - Scaling complete and saved to disk.
+2025-07-23 21:13:44,735 - INFO -    • AUC: 0.951
+2025-07-23 21:13:44,742 - INFO -    • Risk Distribution: {'MINIMAL': 758, 'LOW': 100, 'CRITICAL': 71, 'HIGH': 46, 'MEDIUM': 25}
+2025-07-23 21:13:44,744 - INFO -    • Accuracy: 0.940
+2025-07-23 21:13:44,747 - INFO -    • Precision: 0.931
+2025-07-23 21:13:44,748 - INFO -    • Recall: 0.705
+2025-07-23 21:13:44,748 - INFO -    • F1-Score: 0.803
+2025-07-23 21:13:44,816 - INFO -    • AUC: 0.944
+2025-07-23 21:13:44,818 - INFO -    • Risk Distribution: {'MINIMAL': 802, 'CRITICAL': 122, 'LOW': 40, 'MEDIUM': 21, 'HIGH': 15}
+2025-07-23 21:13:44,820 - INFO -    • Accuracy: 0.927
+2025-07-23 21:13:44,822 - INFO -    • Precision: 0.833
+2025-07-23 21:13:44,824 - INFO -    • Recall: 0.723
+2025-07-23 21:13:44,826 - INFO -    • F1-Score: 0.774
+2025-07-23 21:13:44,868 - INFO -    • AUC: 0.947
+2025-07-23 21:13:44,868 - INFO -    • Risk Distribution: {'MINIMAL': 631, 'CRITICAL': 144, 'LOW': 110, 'MEDIUM': 64, 'HIGH': 51}
+2025-07-23 21:13:44,873 - INFO -    • Accuracy: 0.896
+2025-07-23 21:13:44,874 - INFO -    • Precision: 0.652
+2025-07-23 21:13:44,876 - INFO -    • Recall: 0.855
+2025-07-23 21:13:44,878 - INFO -    • F1-Score: 0.740
+2025-07-23 21:13:45,192 - INFO -    • AUC: 0.939
+2025-07-23 21:13:45,192 - INFO -    • Risk Distribution: {'MINIMAL': 800, 'CRITICAL': 106, 'LOW': 47, 'HIGH': 24, 'MEDIUM': 23}
+2025-07-23 21:13:45,192 - INFO -    • Accuracy: 0.906
+2025-07-23 21:13:45,192 - INFO -    • Precision: 0.701
+2025-07-23 21:13:45,192 - INFO -    • Recall: 0.798
+2025-07-23 21:13:45,200 - INFO -    • F1-Score: 0.746
+2025-07-23 21:13:45,210 - INFO -    • AUC: 0.884
+2025-07-23 21:13:45,210 - INFO -    • Risk Distribution: {'MINIMAL': 706, 'CRITICAL': 159, 'HIGH': 60, 'LOW': 43, 'MEDIUM': 32}
+2025-07-23 21:13:45,210 - INFO -    • Accuracy: 0.867
+2025-07-23 21:13:45,222 - INFO -    • Precision: 0.581
+2025-07-23 21:13:45,222 - INFO -    • Recall: 0.832
+2025-07-23 21:13:45,222 - INFO -    • F1-Score: 0.684
+2025-07-23 21:13:45,239 - INFO -    • AUC: 0.914
+2025-07-23 21:13:45,239 - INFO -    • Risk Distribution: {'MINIMAL': 870, 'CRITICAL': 117, 'LOW': 7, 'MEDIUM': 4, 'HIGH': 2}
+2025-07-23 21:13:45,239 - INFO -    • Accuracy: 0.913
+2025-07-23 21:13:45,239 - INFO -    • Precision: 0.858
+2025-07-23 21:13:45,239 - INFO -    • Recall: 0.595
+2025-07-23 21:13:45,254 - INFO -    • F1-Score: 0.703
+2025-07-23 21:13:45,316 - INFO -    • AUC: 0.942
+2025-07-23 21:13:45,318 - INFO -    • Risk Distribution: {'MINIMAL': 796, 'CRITICAL': 110, 'LOW': 58, 'HIGH': 19, 'MEDIUM': 17}
+2025-07-23 21:13:45,319 - INFO -    • Accuracy: 0.936
+2025-07-23 21:13:45,320 - INFO -    • Precision: 0.887
+2025-07-23 21:13:45,322 - INFO -    • Recall: 0.723
+2025-07-23 21:13:45,324 - INFO -    • F1-Score: 0.796
+2025-07-23 21:18:18,589 - INFO -    • AUC: 0.951
+2025-07-23 21:18:18,589 - INFO -    • Risk Distribution: {'MINIMAL': 758, 'LOW': 100, 'CRITICAL': 71, 'HIGH': 46, 'MEDIUM': 25}
+2025-07-23 21:18:18,589 - INFO -    • Accuracy: 0.940
+2025-07-23 21:18:18,595 - INFO -    • Precision: 0.931
+2025-07-23 21:18:18,596 - INFO -    • Recall: 0.705
+2025-07-23 21:18:18,598 - INFO -    • F1 Score: 0.803
+2025-07-23 21:18:18,656 - INFO -    • AUC: 0.944
+2025-07-23 21:18:18,656 - INFO -    • Risk Distribution: {'MINIMAL': 802, 'CRITICAL': 122, 'LOW': 40, 'MEDIUM': 21, 'HIGH': 15}
+2025-07-23 21:18:18,669 - INFO -    • Accuracy: 0.927
+2025-07-23 21:18:18,671 - INFO -    • Precision: 0.833
+2025-07-23 21:18:18,672 - INFO -    • Recall: 0.723
+2025-07-23 21:18:18,674 - INFO -    • F1 Score: 0.774
+2025-07-23 21:18:18,706 - INFO -    • AUC: 0.947
+2025-07-23 21:18:18,707 - INFO -    • Risk Distribution: {'MINIMAL': 631, 'CRITICAL': 144, 'LOW': 110, 'MEDIUM': 64, 'HIGH': 51}
+2025-07-23 21:18:18,708 - INFO -    • Accuracy: 0.896
+2025-07-23 21:18:18,709 - INFO -    • Precision: 0.652
+2025-07-23 21:18:18,710 - INFO -    • Recall: 0.855
+2025-07-23 21:18:18,711 - INFO -    • F1 Score: 0.740
+2025-07-23 21:18:18,992 - INFO -    • AUC: 0.939
+2025-07-23 21:18:18,992 - INFO -    • Risk Distribution: {'MINIMAL': 800, 'CRITICAL': 106, 'LOW': 47, 'HIGH': 24, 'MEDIUM': 23}
+2025-07-23 21:18:18,992 - INFO -    • Accuracy: 0.906
+2025-07-23 21:18:19,009 - INFO -    • Precision: 0.701
+2025-07-23 21:18:19,010 - INFO -    • Recall: 0.798
+2025-07-23 21:18:19,011 - INFO -    • F1 Score: 0.746
+2025-07-23 21:18:19,033 - INFO -    • AUC: 0.884
+2025-07-23 21:18:19,036 - INFO -    • Risk Distribution: {'MINIMAL': 706, 'CRITICAL': 159, 'HIGH': 60, 'LOW': 43, 'MEDIUM': 32}
+2025-07-23 21:18:19,036 - INFO -    • Accuracy: 0.867
+2025-07-23 21:18:19,036 - INFO -    • Precision: 0.581
+2025-07-23 21:18:19,036 - INFO -    • Recall: 0.832
+2025-07-23 21:18:19,036 - INFO -    • F1 Score: 0.684
+2025-07-23 21:18:19,069 - INFO -    • AUC: 0.914
+2025-07-23 21:18:19,069 - INFO -    • Risk Distribution: {'MINIMAL': 870, 'CRITICAL': 117, 'LOW': 7, 'MEDIUM': 4, 'HIGH': 2}
+2025-07-23 21:18:19,069 - INFO -    • Accuracy: 0.913
+2025-07-23 21:18:19,069 - INFO -    • Precision: 0.858
+2025-07-23 21:18:19,069 - INFO -    • Recall: 0.595
+2025-07-23 21:18:19,076 - INFO -    • F1 Score: 0.703
+2025-07-23 21:18:19,119 - INFO -    • AUC: 0.942
+2025-07-23 21:18:19,119 - INFO -    • Risk Distribution: {'MINIMAL': 796, 'CRITICAL': 110, 'LOW': 58, 'HIGH': 19, 'MEDIUM': 17}
+2025-07-23 21:18:19,119 - INFO -    • Accuracy: 0.936
+2025-07-23 21:18:19,119 - INFO -    • Precision: 0.887
+2025-07-23 21:18:19,119 - INFO -    • Recall: 0.723
+2025-07-23 21:18:19,119 - INFO -    • F1 Score: 0.796
+2025-07-23 21:23:17,443 - INFO - Starting model evaluation...
+2025-07-23 21:23:17,447 - INFO - Evaluating model: Random Forest
+2025-07-23 21:23:17,718 - INFO - AUC: 0.951
+2025-07-23 21:23:17,718 - INFO - Risk Distribution: {'MINIMAL': 758, 'LOW': 100, 'CRITICAL': 71, 'HIGH': 46, 'MEDIUM': 25}
+2025-07-23 21:23:17,718 - INFO - Accuracy: 0.940
+2025-07-23 21:23:17,729 - INFO - Precision: 0.931
+2025-07-23 21:23:17,731 - INFO - Recall: 0.705
+2025-07-23 21:23:17,733 - INFO - F1 Score: 0.803
+2025-07-23 21:23:17,734 - INFO - Evaluating model: Gradient Boosting
+2025-07-23 21:23:17,784 - INFO - AUC: 0.944
+2025-07-23 21:23:17,785 - INFO - Risk Distribution: {'MINIMAL': 802, 'CRITICAL': 122, 'LOW': 40, 'MEDIUM': 21, 'HIGH': 15}
+2025-07-23 21:23:17,787 - INFO - Accuracy: 0.927
+2025-07-23 21:23:17,788 - INFO - Precision: 0.833
+2025-07-23 21:23:17,790 - INFO - Recall: 0.723
+2025-07-23 21:23:17,792 - INFO - F1 Score: 0.774
+2025-07-23 21:23:17,793 - INFO - Evaluating model: Logistic Regression
+2025-07-23 21:23:17,834 - INFO - AUC: 0.947
+2025-07-23 21:23:17,835 - INFO - Risk Distribution: {'MINIMAL': 631, 'CRITICAL': 144, 'LOW': 110, 'MEDIUM': 64, 'HIGH': 51}
+2025-07-23 21:23:17,837 - INFO - Accuracy: 0.896
+2025-07-23 21:23:17,838 - INFO - Precision: 0.652
+2025-07-23 21:23:17,840 - INFO - Recall: 0.855
+2025-07-23 21:23:17,841 - INFO - F1 Score: 0.740
+2025-07-23 21:23:17,842 - INFO - Evaluating model: SVM
+2025-07-23 21:23:18,209 - INFO - AUC: 0.939
+2025-07-23 21:23:18,211 - INFO - Risk Distribution: {'MINIMAL': 800, 'CRITICAL': 106, 'LOW': 47, 'HIGH': 24, 'MEDIUM': 23}
+2025-07-23 21:23:18,211 - INFO - Accuracy: 0.906
+2025-07-23 21:23:18,213 - INFO - Precision: 0.701
+2025-07-23 21:23:18,215 - INFO - Recall: 0.798
+2025-07-23 21:23:18,215 - INFO - F1 Score: 0.746
+2025-07-23 21:23:18,218 - INFO - Evaluating model: Decision Tree
+2025-07-23 21:23:18,253 - INFO - AUC: 0.884
+2025-07-23 21:23:18,255 - INFO - Risk Distribution: {'MINIMAL': 706, 'CRITICAL': 159, 'HIGH': 60, 'LOW': 43, 'MEDIUM': 32}
+2025-07-23 21:23:18,257 - INFO - Accuracy: 0.867
+2025-07-23 21:23:18,258 - INFO - Precision: 0.581
+2025-07-23 21:23:18,260 - INFO - Recall: 0.832
+2025-07-23 21:23:18,261 - INFO - F1 Score: 0.684
+2025-07-23 21:23:18,262 - INFO - Evaluating model: Naive Bayes
+2025-07-23 21:23:18,293 - INFO - AUC: 0.914
+2025-07-23 21:23:18,294 - INFO - Risk Distribution: {'MINIMAL': 870, 'CRITICAL': 117, 'LOW': 7, 'MEDIUM': 4, 'HIGH': 2}
+2025-07-23 21:23:18,295 - INFO - Accuracy: 0.913
+2025-07-23 21:23:18,297 - INFO - Precision: 0.858
+2025-07-23 21:23:18,299 - INFO - Recall: 0.595
+2025-07-23 21:23:18,301 - INFO - F1 Score: 0.703
+2025-07-23 21:23:18,303 - INFO - Evaluating model: Neural Network
+2025-07-23 21:23:18,353 - INFO - AUC: 0.942
+2025-07-23 21:23:18,354 - INFO - Risk Distribution: {'MINIMAL': 796, 'CRITICAL': 110, 'LOW': 58, 'HIGH': 19, 'MEDIUM': 17}
+2025-07-23 21:23:18,355 - INFO - Accuracy: 0.936
+2025-07-23 21:23:18,355 - INFO - Precision: 0.887
+2025-07-23 21:23:18,357 - INFO - Recall: 0.723
+2025-07-23 21:23:18,359 - INFO - F1 Score: 0.796
+2025-07-23 21:23:18,360 - INFO - Model evaluation completed.
+2025-07-23 21:23:18,361 - INFO - Evaluated 7 models successfully
+2025-07-24 00:50:33,134 - INFO - Starting data split and scaling...
+2025-07-24 00:50:33,222 - INFO - Train shape: (4000, 49), Test shape: (1000, 49)
+2025-07-24 00:50:33,225 - INFO - Fraud rate: Train=17.35%, Test=17.30%
+2025-07-24 00:50:33,233 - INFO - Scaling 49 numeric features.
+2025-07-24 00:50:33,361 - INFO - Scaling complete and saved to disk.
+2025-07-24 00:51:55,276 - INFO - Starting model evaluation...
+2025-07-24 00:51:55,286 - INFO - Evaluating model: Random Forest
+2025-07-24 00:51:55,639 - INFO - AUC: 0.951
+2025-07-24 00:51:55,641 - INFO - Risk Distribution: {'MINIMAL': 758, 'LOW': 100, 'CRITICAL': 71, 'HIGH': 46, 'MEDIUM': 25}
+2025-07-24 00:51:55,643 - INFO - Accuracy: 0.940
+2025-07-24 00:51:55,645 - INFO - Precision: 0.931
+2025-07-24 00:51:55,649 - INFO - Recall: 0.705
+2025-07-24 00:51:55,650 - INFO - F1 Score: 0.803
+2025-07-24 00:51:55,652 - INFO - Evaluating model: Gradient Boosting
+2025-07-24 00:51:55,738 - INFO - AUC: 0.944
+2025-07-24 00:51:55,740 - INFO - Risk Distribution: {'MINIMAL': 802, 'CRITICAL': 122, 'LOW': 40, 'MEDIUM': 21, 'HIGH': 15}
+2025-07-24 00:51:55,742 - INFO - Accuracy: 0.927
+2025-07-24 00:51:55,744 - INFO - Precision: 0.833
+2025-07-24 00:51:55,746 - INFO - Recall: 0.723
+2025-07-24 00:51:55,747 - INFO - F1 Score: 0.774
+2025-07-24 00:51:55,748 - INFO - Evaluating model: Logistic Regression
+2025-07-24 00:51:55,786 - INFO - AUC: 0.947
+2025-07-24 00:51:55,787 - INFO - Risk Distribution: {'MINIMAL': 631, 'CRITICAL': 144, 'LOW': 110, 'MEDIUM': 64, 'HIGH': 51}
+2025-07-24 00:51:55,789 - INFO - Accuracy: 0.896
+2025-07-24 00:51:55,791 - INFO - Precision: 0.652
+2025-07-24 00:51:55,792 - INFO - Recall: 0.855
+2025-07-24 00:51:55,794 - INFO - F1 Score: 0.740
+2025-07-24 00:51:55,796 - INFO - Evaluating model: SVM
+2025-07-24 00:51:56,350 - INFO - AUC: 0.939
+2025-07-24 00:51:56,352 - INFO - Risk Distribution: {'MINIMAL': 800, 'CRITICAL': 106, 'LOW': 47, 'HIGH': 24, 'MEDIUM': 23}
+2025-07-24 00:51:56,355 - INFO - Accuracy: 0.906
+2025-07-24 00:51:56,357 - INFO - Precision: 0.701
+2025-07-24 00:51:56,359 - INFO - Recall: 0.798
+2025-07-24 00:51:56,361 - INFO - F1 Score: 0.746
+2025-07-24 00:51:56,362 - INFO - Evaluating model: Decision Tree
+2025-07-24 00:51:56,439 - INFO - AUC: 0.884
+2025-07-24 00:51:56,441 - INFO - Risk Distribution: {'MINIMAL': 706, 'CRITICAL': 159, 'HIGH': 60, 'LOW': 43, 'MEDIUM': 32}
+2025-07-24 00:51:56,443 - INFO - Accuracy: 0.867
+2025-07-24 00:51:56,446 - INFO - Precision: 0.581
+2025-07-24 00:51:56,447 - INFO - Recall: 0.832
+2025-07-24 00:51:56,449 - INFO - F1 Score: 0.684
+2025-07-24 00:51:56,455 - INFO - Evaluating model: Naive Bayes
+2025-07-24 00:51:56,520 - INFO - AUC: 0.914
+2025-07-24 00:51:56,523 - INFO - Risk Distribution: {'MINIMAL': 870, 'CRITICAL': 117, 'LOW': 7, 'MEDIUM': 4, 'HIGH': 2}
+2025-07-24 00:51:56,525 - INFO - Accuracy: 0.913
+2025-07-24 00:51:56,526 - INFO - Precision: 0.858
+2025-07-24 00:51:56,529 - INFO - Recall: 0.595
+2025-07-24 00:51:56,531 - INFO - F1 Score: 0.703
+2025-07-24 00:51:56,533 - INFO - Evaluating model: Neural Network
+2025-07-24 00:51:56,651 - INFO - AUC: 0.942
+2025-07-24 00:51:56,653 - INFO - Risk Distribution: {'MINIMAL': 796, 'CRITICAL': 110, 'LOW': 58, 'HIGH': 19, 'MEDIUM': 17}
+2025-07-24 00:51:56,655 - INFO - Accuracy: 0.936
+2025-07-24 00:51:56,657 - INFO - Precision: 0.887
+2025-07-24 00:51:56,658 - INFO - Recall: 0.723
+2025-07-24 00:51:56,660 - INFO - F1 Score: 0.796
+2025-07-24 00:51:56,662 - INFO - Model evaluation completed.
+2025-07-24 00:51:56,666 - INFO - Evaluated 7 models successfully
+2025-07-24 01:05:05,692 - INFO - Starting data split and scaling...
+2025-07-24 01:05:05,754 - INFO - Train shape: (4000, 49), Test shape: (1000, 49)
+2025-07-24 01:05:05,759 - INFO - Fraud rate: Train=17.35%, Test=17.30%
+2025-07-24 01:05:05,764 - INFO - Scaling 49 numeric features.
+2025-07-24 01:05:05,846 - INFO - Scaling complete and saved to disk.
+2025-07-24 01:11:38,111 - INFO - Starting model evaluation...
+2025-07-24 01:11:38,131 - INFO - Evaluating model: Random Forest
+2025-07-24 01:11:38,762 - INFO - AUC: 0.951
+2025-07-24 01:11:38,766 - INFO - Risk Distribution: {'MINIMAL': 758, 'LOW': 100, 'CRITICAL': 71, 'HIGH': 46, 'MEDIUM': 25}
+2025-07-24 01:11:38,767 - INFO - Accuracy: 0.940
+2025-07-24 01:11:38,770 - INFO - Precision: 0.931
+2025-07-24 01:11:38,773 - INFO - Recall: 0.705
+2025-07-24 01:11:38,775 - INFO - F1 Score: 0.803
+2025-07-24 01:11:38,778 - INFO - Evaluating model: Gradient Boosting
+2025-07-24 01:11:38,880 - INFO - AUC: 0.944
+2025-07-24 01:11:38,881 - INFO - Risk Distribution: {'MINIMAL': 802, 'CRITICAL': 122, 'LOW': 40, 'MEDIUM': 21, 'HIGH': 15}
+2025-07-24 01:11:38,883 - INFO - Accuracy: 0.927
+2025-07-24 01:11:38,885 - INFO - Precision: 0.833
+2025-07-24 01:11:38,887 - INFO - Recall: 0.723
+2025-07-24 01:11:38,889 - INFO - F1 Score: 0.774
+2025-07-24 01:11:38,893 - INFO - Evaluating model: Logistic Regression
+2025-07-24 01:11:38,949 - INFO - AUC: 0.947
+2025-07-24 01:11:38,951 - INFO - Risk Distribution: {'MINIMAL': 631, 'CRITICAL': 144, 'LOW': 110, 'MEDIUM': 64, 'HIGH': 51}
+2025-07-24 01:11:38,952 - INFO - Accuracy: 0.896
+2025-07-24 01:11:38,955 - INFO - Precision: 0.652
+2025-07-24 01:11:38,957 - INFO - Recall: 0.855
+2025-07-24 01:11:38,961 - INFO - F1 Score: 0.740
+2025-07-24 01:11:38,964 - INFO - Evaluating model: SVM
+2025-07-24 01:11:39,439 - INFO - AUC: 0.939
+2025-07-24 01:11:39,440 - INFO - Risk Distribution: {'MINIMAL': 800, 'CRITICAL': 106, 'LOW': 47, 'HIGH': 24, 'MEDIUM': 23}
+2025-07-24 01:11:39,442 - INFO - Accuracy: 0.906
+2025-07-24 01:11:39,444 - INFO - Precision: 0.701
+2025-07-24 01:11:39,446 - INFO - Recall: 0.798
+2025-07-24 01:11:39,448 - INFO - F1 Score: 0.746
+2025-07-24 01:11:39,449 - INFO - Evaluating model: Decision Tree
+2025-07-24 01:11:39,499 - INFO - AUC: 0.884
+2025-07-24 01:11:39,500 - INFO - Risk Distribution: {'MINIMAL': 706, 'CRITICAL': 159, 'HIGH': 60, 'LOW': 43, 'MEDIUM': 32}
+2025-07-24 01:11:39,502 - INFO - Accuracy: 0.867
+2025-07-24 01:11:39,503 - INFO - Precision: 0.581
+2025-07-24 01:11:39,505 - INFO - Recall: 0.832
+2025-07-24 01:11:39,509 - INFO - F1 Score: 0.684
+2025-07-24 01:11:39,512 - INFO - Evaluating model: Naive Bayes
+2025-07-24 01:11:39,590 - INFO - AUC: 0.914
+2025-07-24 01:11:39,592 - INFO - Risk Distribution: {'MINIMAL': 870, 'CRITICAL': 117, 'LOW': 7, 'MEDIUM': 4, 'HIGH': 2}
+2025-07-24 01:11:39,594 - INFO - Accuracy: 0.913
+2025-07-24 01:11:39,596 - INFO - Precision: 0.858
+2025-07-24 01:11:39,598 - INFO - Recall: 0.595
+2025-07-24 01:11:39,600 - INFO - F1 Score: 0.703
+2025-07-24 01:11:39,601 - INFO - Evaluating model: Neural Network
+2025-07-24 01:11:39,674 - INFO - AUC: 0.942
+2025-07-24 01:11:39,682 - INFO - Risk Distribution: {'MINIMAL': 796, 'CRITICAL': 110, 'LOW': 58, 'HIGH': 19, 'MEDIUM': 17}
+2025-07-24 01:11:39,683 - INFO - Accuracy: 0.936
+2025-07-24 01:11:39,685 - INFO - Precision: 0.887
+2025-07-24 01:11:39,686 - INFO - Recall: 0.723
+2025-07-24 01:11:39,687 - INFO - F1 Score: 0.796
+2025-07-24 01:11:39,689 - INFO - Model evaluation completed.
+2025-07-24 01:11:39,689 - INFO - Evaluated 7 models successfully
+2025-07-24 01:33:47,502 - INFO - patient_present: 0.2209
+2025-07-24 01:33:47,504 - INFO - biometric_verified: 0.1144
+2025-07-24 01:33:47,506 - INFO - patient_deceased: 0.1063
+2025-07-24 01:33:47,509 - INFO - cost_ratio: 0.0857
+2025-07-24 01:33:47,514 - INFO - cost_deviation: 0.0855
+2025-07-24 01:33:47,516 - INFO - provider_claims_today: 0.0470
+2025-07-24 01:33:47,520 - INFO - cost_outlier_flag: 0.0435
+2025-07-24 01:33:47,522 - INFO - location_mismatch: 0.0320
+2025-07-24 01:33:47,524 - INFO - is_high_risk_doctor: 0.0320
+2025-07-24 01:33:47,526 - INFO - claim_amount: 0.0228
+2025-07-24 01:33:47,529 - INFO - patient_age: 0.0215
+2025-07-24 01:33:47,531 - INFO - day_of_month: 0.0188
+2025-07-24 01:33:47,533 - INFO - hour: 0.0182
+2025-07-24 01:33:47,536 - INFO - day_of_week: 0.0159
+2025-07-24 01:33:47,539 - INFO - diagnosis_code_encoded: 0.0131
+2025-07-24 01:33:47,540 - INFO - travel_distance_suspicious: 0.0107
+2025-07-24 01:33:47,542 - INFO - expected_cost_max: 0.0106
+2025-07-24 01:33:47,545 - INFO - expected_cost_min: 0.0098
+2025-07-24 01:33:47,547 - INFO - weekend_claim: 0.0084
+2025-07-24 01:33:47,549 - INFO - is_weekend: 0.0076
